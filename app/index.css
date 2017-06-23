@@ -1,3 +1,34 @@
 body {
-  background-color: antiquewhite;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    Helvetica Neue,
+    sans-serif;
+}
+ul {
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.languages {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.languages__item {
+  margin: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.languages__item.active {
+  color: #d0021b;
 }
