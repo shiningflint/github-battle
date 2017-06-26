@@ -12,6 +12,11 @@ body {
 }
 ul {
   padding: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 .container {
@@ -20,7 +25,6 @@ ul {
 }
 
 .languages {
-  list-style: none;
   display: flex;
   justify-content: center;
 }
@@ -31,4 +35,20 @@ ul {
 }
 .languages__item.active {
   color: #d0021b;
+}
+
+.popular-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.popular-list__item {
+  margin: 20px;
+  text-align: center;
+  width: 180px;
+}
+
+.space-list-item {
+  margin-bottom: 7px;
 }
