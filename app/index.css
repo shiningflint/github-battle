@@ -102,3 +102,17 @@ a {
 .player-title {
   display: block;
 }
+.reset {
+  border: none;
+  background-color: transparent;
+  color: #d0021b;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.reset:hover {
+  cursor: pointer;
+}
+.avatar-preview {
+  width: 100px;
+}
