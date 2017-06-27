@@ -23,6 +23,11 @@ a {
   color: #d0021b;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+
 .container {
   max-width: 960px;
   margin: 0 auto;
@@ -93,4 +98,7 @@ a {
 }
 .button:active {
   transform: translateY(1px);
+}
+.player-title {
+  display: block;
 }
