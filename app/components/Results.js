@@ -2,6 +2,47 @@ var React = require('react');
 var queryString = require('query-string');
 var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
+var PropTypes = require('prop-types');
+var PlayerPreview = require('./PlayerPreview');
+
+function Profile(props) {
+  return(
+    <PlayerPreview
+      avatar = {props.info.avatar_url}
+      username = {props.info.login}
+      >
+      <ul className='space-list-items'>
+        {props.info.name && <li>{props.info.name}</li>}
+        {props.info.location && <li>{props.info.location}</li>}
+        {props.info.company && <li>{props.info.company}</li>}
+        <li>Followers: {props.info.followers}</li>
+        <li>Following: {props.info.following}</li>
+        <li>Public Repos: {props.info.public_repos}</li>
+        {props.info.blog && <li><a href={props.info.blog}>{props.info.blog}</a></li>}
+      </ul>
+    </PlayerPreview>
+  )
+}
+
+Profile.propTypes = {
+  info: PropTypes.object.isRequired
+}
+
+function Player(props) {
+  return(
+    <div>
+      <h2 className='header'>{props.label}</h2>
+      <h3 style={{textAlign: 'center'}}>{props.score}</h3>
+      <Profile info={props.profile} />
+    </div>
+  )
+}
+
+Player.propTypes = {
+  label: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
+  profile: PropTypes.object.isRequired
+}
 
 class Results extends React.Component {
 
@@ -21,7 +62,6 @@ class Results extends React.Component {
       players.playerOneName,
       players.playerTwoName
     ]).then((results) => {
-      console.log(results);
       if(results === null) {
         return this.setState(() => {
           return {
@@ -62,7 +102,18 @@ class Results extends React.Component {
     }
 
     return(
-      <div>{JSON.stringify(this.state, null, 2)}</div>
+      <div className='flex'>
+        <Player
+          label= 'Winner'
+          score={winner.score}
+          profile={winner.profile}
+        />
+        <Player
+          label= 'Loser'
+          score={loser.score}
+          profile={loser.profile}
+        />
+      </div>
     );
   }
 }
