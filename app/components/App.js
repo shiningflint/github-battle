@@ -12,7 +12,7 @@ var Results = require('./Results');
 class App extends React.Component {
   render() {
     return(
-      <Router>
+      <Router basename="/react/github-battle">
         <div className="container">
           <Nav />
           <Switch>
